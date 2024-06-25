@@ -18,17 +18,16 @@ def test_read_root_deve_retornar_ok_e_ola_mundo():
 
 def test_read_root_html_deve_retornar_ok_e_ola_mundo():
     html = """
-        \n    <html>\n      <head>\n        <title> Nosso olá mundo!</title>\n
-                    </head>\n      <body>\n        
-        <h1> Olá Mundo </h1>\n      </body>\n    </html>' == '\n        
-        <html>\n        <head>\n            <title> Nosso olá mundo!</title>\n        
-        </head>\n        <body>\n            <h1> Olá 
-        Mundo </h1>\n        </body>\n        </html>\n    
-    """
+    <html>
+      <head>
+        <title> Nosso olá mundo!</title>
+      </head>
+      <body>
+        <h1> Olá Mundo </h1>
+      </body>
+    </html>"""
     client = TestClient(app)  # Arrange (organização)
-    #breakpoint()
+
     response = client.get('/aa')  # Act (açao)
     assert response.status_code == HTTPStatus.OK  # assert
     assert response.text == html  # assert
-
-#test_read_root_html_deve_retornar_ok_e_ola_mundo()
